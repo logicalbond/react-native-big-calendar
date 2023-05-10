@@ -23,10 +23,11 @@
     "prepublish": "npm run build",
     "build": "npm-run-all build:clean build:ts",
     "build:clean": "rimraf build/",
-    "build:ts": "env NODE_ENV=production rollup -c"
+    "build:ts": "cross-env NODE_ENV=production rollup -c"
   },
   "dependencies": {
     "calendarize": "^1.1.1",
+    "cross-env": "^7.0.3",
     "dayjs": "^1.11.7",
     "merge-anything": "5.1.4"
   },
@@ -79,8 +80,7 @@
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
-      "prettier --write",
-      "eslint --fix"
+      "prettier --write"
     ],
     "*.{md}": [
       "prettier --write"
